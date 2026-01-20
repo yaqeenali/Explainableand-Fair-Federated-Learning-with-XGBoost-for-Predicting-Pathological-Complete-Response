@@ -1,0 +1,71 @@
+2025-07-24 11:55:40,595 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2025-07-24 11:55:40,694 - CoreCell - INFO - site-2.simulate_job: created backbone external connector to tcp://localhost:44881
+2025-07-24 11:55:40,694 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:44881] is starting
+2025-07-24 11:55:40,695 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:53446 => 127.0.0.1:44881] is created: PID: 111372
+2025-07-24 11:55:40,822 - AuxRunner - INFO - registered aux handler for topic __end_run__
+2025-07-24 11:55:40,822 - AuxRunner - INFO - registered aux handler for topic __do_task__
+2025-07-24 11:55:40,823 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2025-07-24 11:55:41,328 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
+2025-07-24 11:55:41,353 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: synced to Server Runner in 0.5247907638549805 seconds
+2025-07-24 11:55:41,353 - AuxRunner - INFO - registered aux handler for topic RM.RELIABLE_REQUEST
+2025-07-24 11:55:41,353 - AuxRunner - INFO - registered aux handler for topic RM.RELIABLE_REPLY
+2025-07-24 11:55:41,354 - ReliableMessage - INFO - enabled reliable message: max_request_workers=20 query_interval=2.0
+2025-07-24 11:55:41,355 - TaskScriptRunner - INFO - start task run() with full path: /home/yaqeen/NVFlare/examples/hello-world/step-by-step/higgs/xgboost_pcr/./xgboost/site-2/simulate_job/app_site-2/custom/code/xgboost_fl.py
+2025-07-24 11:55:41,355 - AuxRunner - INFO - registered aux handler for topic fed.event
+2025-07-24 11:55:41,356 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: client runner started
+2025-07-24 11:55:41,356 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-2
+2025-07-24 11:55:41,361 - Communicator - INFO - Received from simulator_server server. getTask: train size: 779B (779 Bytes) time: 0.004438 seconds
+2025-07-24 11:55:41,362 - FederatedClient - INFO - pull_task completed. Task name:train Status:True 
+2025-07-24 11:55:41,362 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train, id=ca6da09d-02eb-43d9-bf30-35528212818d
+2025-07-24 11:55:41,362 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ca6da09d-02eb-43d9-bf30-35528212818d]: invoking task executor InProcessClientAPIExecutor
+2025-07-24 11:55:41,362 - InProcessClientAPIExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ca6da09d-02eb-43d9-bf30-35528212818d]: execute for task (train)
+2025-07-24 11:55:41,363 - InProcessClientAPIExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ca6da09d-02eb-43d9-bf30-35528212818d]: send data to peer
+2025-07-24 11:55:41,363 - InProcessClientAPIExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ca6da09d-02eb-43d9-bf30-35528212818d]: sending payload to peer
+2025-07-24 11:55:41,364 - InProcessClientAPIExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ca6da09d-02eb-43d9-bf30-35528212818d]: Waiting for result from peer
+2025-07-24 11:55:41,477 - numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-07-24 11:55:41,477 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-07-24 11:55:42,050 - nvflare.app_common.executors.task_script_runner - INFO - current_round=0
+2025-07-24 11:55:42,088 - nvflare.app_common.executors.task_script_runner - INFO - site-2 | Round 0 | Iter 1 | AUC: 0.71212 | Balanced Acc: 0.50000
+2025-07-24 11:55:42,106 - nvflare.app_common.executors.task_script_runner - INFO - >>> New best model found and saved (AUC=0.71212, BalAcc=0.50000)
+2025-07-24 11:55:42,121 - InProcessClientAPI - INFO - Try to send local model back to peer 
+2025-07-24 11:55:42,366 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ca6da09d-02eb-43d9-bf30-35528212818d]: finished processing task
+2025-07-24 11:55:42,366 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ca6da09d-02eb-43d9-bf30-35528212818d]: try #1: sending task result to server
+2025-07-24 11:55:42,366 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ca6da09d-02eb-43d9-bf30-35528212818d]: checking task ...
+2025-07-24 11:55:42,366 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2025-07-24 11:55:42,370 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ca6da09d-02eb-43d9-bf30-35528212818d]: start to send task result to server
+2025-07-24 11:55:42,370 - FederatedClient - INFO - Starting to push execute result.
+2025-07-24 11:55:42,395 - Communicator - INFO -  SubmitUpdate size: 2.2KB (2243 Bytes). time: 0.025324 seconds
+2025-07-24 11:55:42,395 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ca6da09d-02eb-43d9-bf30-35528212818d]: task result sent to server
+2025-07-24 11:55:42,395 - ClientTaskWorker - INFO - Finished one task run for client: site-2 interval: 2 task_processed: True
+2025-07-24 11:55:44,409 - Communicator - INFO - Received from simulator_server server. getTask: train size: 6.8KB (6814 Bytes) time: 0.011103 seconds
+2025-07-24 11:55:44,409 - FederatedClient - INFO - pull_task completed. Task name:train Status:True 
+2025-07-24 11:55:44,409 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train, id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd
+2025-07-24 11:55:44,410 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd]: invoking task executor InProcessClientAPIExecutor
+2025-07-24 11:55:44,410 - InProcessClientAPIExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd]: execute for task (train)
+2025-07-24 11:55:44,411 - InProcessClientAPIExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd]: send data to peer
+2025-07-24 11:55:44,411 - InProcessClientAPIExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd]: sending payload to peer
+2025-07-24 11:55:44,412 - InProcessClientAPIExecutor - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd]: Waiting for result from peer
+2025-07-24 11:55:44,624 - nvflare.app_common.executors.task_script_runner - INFO - current_round=1
+2025-07-24 11:55:44,660 - nvflare.app_common.executors.task_script_runner - INFO - site-2: Global model AUC: 0.76768 | Balanced Acc: 0.50000
+2025-07-24 11:55:44,690 - InProcessClientAPI - INFO - Try to send local model back to peer 
+2025-07-24 11:55:44,912 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd]: finished processing task
+2025-07-24 11:55:44,913 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd]: try #1: sending task result to server
+2025-07-24 11:55:44,913 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd]: checking task ...
+2025-07-24 11:55:44,913 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2025-07-24 11:55:44,916 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd]: start to send task result to server
+2025-07-24 11:55:44,916 - FederatedClient - INFO - Starting to push execute result.
+2025-07-24 11:55:44,932 - Communicator - INFO -  SubmitUpdate size: 2.4KB (2355 Bytes). time: 0.015986 seconds
+2025-07-24 11:55:44,932 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train, task_id=ecb5bf20-dc92-4550-a6ce-f473bf5a46dd]: task result sent to server
+2025-07-24 11:55:44,932 - ClientTaskWorker - INFO - Finished one task run for client: site-2 interval: 2 task_processed: True
+2025-07-24 11:55:45,084 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: received request from Server to end current RUN
+2025-07-24 11:55:46,943 - FederatedClient - INFO - pull_task completed. Task name:__end_run__ Status:True 
+2025-07-24 11:55:46,943 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: server asked to end the run
+2025-07-24 11:55:46,943 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: started end-run events sequence
+2025-07-24 11:55:46,944 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: ABOUT_TO_END_RUN fired
+2025-07-24 11:55:46,944 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2025-07-24 11:55:46,945 - InProcessClientAPI - WARNING - ask to stop job: reason: END_RUN received
+2025-07-24 11:55:47,194 - InProcessClientAPI - WARNING - request to stop the job for reason END_RUN received
+2025-07-24 11:55:47,195 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: END_RUN fired
+2025-07-24 11:55:47,195 - ClientTaskWorker - INFO - End the Simulator run.
+2025-07-24 11:55:47,237 - ClientTaskWorker - INFO - Clean up ClientRunner for : site-2 
+2025-07-24 11:55:47,241 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 111372

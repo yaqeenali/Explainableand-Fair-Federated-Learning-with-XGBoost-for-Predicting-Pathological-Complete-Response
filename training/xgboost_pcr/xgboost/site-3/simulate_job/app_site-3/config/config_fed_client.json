@@ -1,0 +1,21 @@
+{
+    "format_version": 2,
+    "executors": [
+        {
+            "tasks": [
+                "*"
+            ],
+            "executor": {
+                "path": "nvflare.app_common.executors.in_process_client_api_executor.InProcessClientAPIExecutor",
+                "args": {
+                    "task_script_path": "code/xgboost_fl.py",
+                    "task_script_args": "--data_root_dir /home/yaqeen/NVFlare/dataset/pcr/output",
+                    "params_exchange_format": "raw"
+                }
+            }
+        }
+    ],
+    "components": [],
+    "task_data_filters": [],
+    "task_result_filters": []
+}

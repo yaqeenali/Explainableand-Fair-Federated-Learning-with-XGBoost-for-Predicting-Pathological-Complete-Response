@@ -1,0 +1,24 @@
+{
+    "name": "xgboost_tree",
+    "resource_spec": {},
+    "min_clients": 1,
+    "deploy_map": {
+        "app_server": [
+            "server"
+        ],
+        "app_site-1": [
+            "site-1"
+        ],
+        "app_site-2": [
+            "site-2"
+        ],
+        "app_site-3": [
+            "site-3"
+        ],
+        "app_site-4": [
+            "site-4"
+        ]
+    },
+    "job_folder_name": "xgboost_tree",
+    "byoc": true
+}
