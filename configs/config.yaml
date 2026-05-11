@@ -1,0 +1,67 @@
+# Configuration — Explainable & Fair Federated XGBoost for pCR Prediction
+# Ali et al., SPIE Medical Imaging 2026, Proc. SPIE Vol. 13926, 139260Q
+
+data:
+  features_csv:   data/features_fused.csv    # output of feature_engineering/feature_selection.py
+  clinical_csv:   data/clinical.csv          # MAMA-MIA clinical variables
+  radiomics_csv:  data/radiomics.csv         # output of feature_engineering/radiomic_extraction.py
+  test_size:      0.2
+  random_state:   42
+
+feature_engineering:
+  top_k_imaging:        6          # top imaging features selected (paper)
+  spearman_threshold:   0.90       # correlation cutoff for redundancy filtering
+  clinical_features:               # 5 clinical variables (paper Section 2.2)
+    - er
+    - pr
+    - her2
+    - hr
+    - tumor_subtype
+
+federated_learning:
+  framework:      nvidia_flare
+  num_rounds:     2                # FL communication rounds (paper)
+  num_clients:    4                # DUKE, ISPY1, ISPY2, NACT
+  aggregator:     XGBBaggingAggregator
+  controller:     ScatterAndGather
+  sites:
+    - name: duke
+      collection: Duke-Breast-Cancer-MRI
+    - name: ispy1
+      collection: I-SPY_1
+    - name: ispy2
+      collection: I-SPY_2
+    - name: nact
+      collection: NACT-Breast-MRI-Histology
+
+xgboost:
+  eta:            0.1              # learning rate (paper)
+  max_depth:      3                # tree depth (paper)
+  objective:      binary:logistic  # binary classification (paper)
+  eval_metric:    auc
+  seed:           42
+  nthread:        4
+  subsample:      0.8
+  colsample_bytree: 0.8
+
+preprocessing:
+  resampling_spacing: [1, 1, 1]   # isotropic 1 mm³ (paper)
+  normalization:  zscore
+
+evaluation:
+  threshold:      0.5
+  metrics:
+    - auc
+    - balanced_accuracy
+    - sensitivity
+    - specificity
+    - f1
+  fairness_variables:              # Equations 1-3 in paper
+    - age_group
+    - menopausal_status
+    - scanner_vendor
+    - site
+
+output:
+  results_dir:    results/
+  figures_dir:    figures/
